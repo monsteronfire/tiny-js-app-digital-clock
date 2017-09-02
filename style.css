@@ -1,0 +1,30 @@
+body {
+  background-color: #58B1E7;
+}
+
+.clock {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0.5em 0em;
+  background-color: black;
+  color: white;
+  font-family: Helvetica, Arial;
+  font-size: 100px;
+  text-align: center;
+}
+
+.banner {
+  width: 80%;
+  margin: 10% auto 0%;
+  padding: 0.5em 0em;
+  background-color: #EB6C52;
+  color: #FEFEFE;
+  font-family: Helvetica, Arial;
+  font-size: 50px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.banner span {
+  margin-left: 170px;
+}
