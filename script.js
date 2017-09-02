@@ -1,5 +1,5 @@
 (function () {
-  setInterval(function () {
+  function clock() {
     var currentTime = new Date();
     var hours = currentTime.getHours();
     var minutes = currentTime.getMinutes();
@@ -25,5 +25,7 @@
     var clockTime = hours + ":" + minutes + ":" + seconds + " " + period;
     var clock = document.querySelector('#clock');
     clock.innerText = clockTime;
-  }, 1000);
+  }
+
+  setInterval(clock, 1000);
 })();
