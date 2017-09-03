@@ -1,31 +1,67 @@
 (function () {
-  function clock() {
+  function getCurrentTime () {
     var currentTime = new Date();
-    var hours = currentTime.getHours();
-    var minutes = currentTime.getMinutes();
-    var seconds = currentTime.getSeconds();
-    var period = "AM";
+    return currentTime;
+  }
 
-    if (hours >= 12) {
-      period = "PM";
-    }
+  function getHours () {
+    return getCurrentTime().getHours();
+  }
+
+  function setHours () {
+    var hours = getHours();
 
     if (hours > 12) {
       hours = hours -12;
     }
+    return hours;
+  }
 
-    if (seconds < 10) {
-      seconds = "0" + seconds;
-    }
+  function getMinutes () {
+    return getCurrentTime().getMinutes();
+  }
+
+  function setMinutes () {
+    var minutes = getMinutes();
 
     if (minutes < 10) {
       minutes = "0" + minutes;
     }
 
-    var clockTime = hours + ":" + minutes + ":" + seconds + " " + period;
+    return minutes;
+  }
+
+  function getSeconds () {
+    return getCurrentTime().getSeconds();
+  }
+
+  function setSeconds () {
+    var seconds = getCurrentTime.getSeconds();
+
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+
+    return seconds;
+  }
+
+  function setMeridian () {
+    var meridian;
+
+    if (getHours() >= 12) {
+      meridian = "PM";
+    } else {
+      meridian = "AM";
+    }
+
+     return meridian;
+  }
+
+  function printtime () {
+    var clockTime = getHours() + ":" + getMinutes() + ":" + getSeconds() + " " + setMeridian();
     var clock = document.querySelector('#clock');
     clock.innerText = clockTime;
   }
 
-  setInterval(clock, 1000);
+  setInterval(printtime, 1000);
 })();
