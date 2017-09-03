@@ -1,29 +1,31 @@
-(function () {
-  function getCurrentTime () {
+var Clock = (function () {
+  'use strict';
+
+  var getCurrentTime = function () {
     var currentTime = new Date();
     return currentTime;
-  }
+  };
 
-  function getHours () {
+  var getHours = function () {
     return getCurrentTime().getHours();
-  }
+  };
 
-  function setHours () {
+  var setHours = function () {
     var hours = getHours();
 
     if (hours > 12) {
       hours = hours -12;
-    } else if (hours === 0) {
+    } else if (hours < 10) {
       hours = "0" + hours;
     }
     return hours;
-  }
+  };
 
-  function getMinutes () {
+  var getMinutes = function () {
     return getCurrentTime().getMinutes();
-  }
+  };
 
-  function setMinutes () {
+  var setMinutes = function () {
     var minutes = getMinutes();
 
     if (minutes < 10) {
@@ -31,13 +33,13 @@
     }
 
     return minutes;
-  }
+  };
 
-  function getSeconds () {
+  var getSeconds = function () {
     return getCurrentTime().getSeconds();
-  }
+  };
 
-  function setSeconds () {
+  var setSeconds = function () {
     var seconds = getSeconds();
 
     if (seconds < 10) {
@@ -45,9 +47,9 @@
     }
 
     return seconds;
-  }
+  };
 
-  function setMeridian () {
+  var setMeridian = function () {
     var meridian;
 
     if (getHours() >= 12) {
@@ -57,13 +59,16 @@
     }
 
      return meridian;
-  }
+  };
 
-  function printtime () {
+  var printtime = function () {
     var clockTime = setHours() + ":" + setMinutes() + ":" + setSeconds() + " " + setMeridian();
     var clock = document.querySelector('#clock');
     clock.innerText = clockTime;
-  }
+  };
 
-  setInterval(printtime, 1000);
+  return {
+    init: printtime
+  };
+
 })();
