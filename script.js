@@ -13,6 +13,8 @@
 
     if (hours > 12) {
       hours = hours -12;
+    } else if (hours === 0) {
+      hours = "0" + hours;
     }
     return hours;
   }
@@ -36,7 +38,7 @@
   }
 
   function setSeconds () {
-    var seconds = getCurrentTime.getSeconds();
+    var seconds = getSeconds();
 
     if (seconds < 10) {
       seconds = "0" + seconds;
@@ -58,7 +60,7 @@
   }
 
   function printtime () {
-    var clockTime = getHours() + ":" + getMinutes() + ":" + getSeconds() + " " + setMeridian();
+    var clockTime = setHours() + ":" + setMinutes() + ":" + setSeconds() + " " + setMeridian();
     var clock = document.querySelector('#clock');
     clock.innerText = clockTime;
   }
