@@ -6,6 +6,12 @@ var Clock = (function () {
     return currentTime;
   };
 
+  var setLeadingZero = function(unitOfTime) {
+    if (unitOfTime < 10) {
+      unitOfTime = "0" + unitOfTime;
+    }
+  };
+
   var getHours = function () {
     return getCurrentTime().getHours();
   };
